@@ -1,6 +1,6 @@
-Here's a structured README file for your GitHub repository that outlines your Spring Boot application with OAuth2 and JWT authentication. You can modify any sections as needed.
 
-```markdown
+---
+
 # OAuth2 Spring Boot Application
 
 This is a Spring Boot application that implements OAuth2 authentication with JWT (JSON Web Tokens) using RSA keys. The application supports user sign-in, role-based access control, and token generation for authorized API access.
@@ -29,26 +29,48 @@ This is a Spring Boot application that implements OAuth2 authentication with JWT
 - **MySQL**: As the database for user data
 - **Lombok**: For reducing boilerplate code
 
-## Configuration
-The application can be configured via the `application.properties` file located in `src/main/resources`. Below are the essential configurations:
 
-```properties
-spring.application.name=oauth
-server.port=8080
+## Setup
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/your-username/oauth-spring-boot-app.git
+   cd oauth-spring-boot-app
+   ```
 
-spring.datasource.url=jdbc:mysql://localhost:3306/oauth_impl
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.datasource.username=root
-spring.datasource.password=root@123
+2. **Install Dependencies**
+   Make sure you have Maven installed. Run the following command to install the dependencies:
+   ```bash
+   mvn clean install
+   ```
 
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
+3. **Set Up Database**
+   Create a MySQL database named `oauth_impl` and configure the `application.properties` file with the appropriate database credentials.
 
-logging.level.org.springframework.security=trace
+4. **Run the Application**
+   You can run the application using:
+   ```bash
+   mvn spring-boot:run
+   ```
 
-jwt.rsa-private-key=classpath:certs/privateKey.pem
-jwt.rsa-public-key=classpath:certs/publicKey.pem
-```
+## Endpoints
+The following endpoints are available in the application:
+
+- **POST /auth/login**: Authenticate user and return JWT token.
+- **GET /api/users**: Retrieve a list of users (secured endpoint).
+- **GET /api/user/{id}**: Retrieve a specific user by ID (secured endpoint).
+
+## JWT Generation
+The application generates JWT tokens upon successful authentication. These tokens must be included in the Authorization header as a Bearer token for accessing secured endpoints.
+
+## Security Configuration
+The application uses Spring Security to manage authentication and authorization. Make sure to configure your security settings according to your application's requirements.
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+
+---
+
+Feel free to replace `your-username` with your actual GitHub username and modify any section as needed!
 
 ### RSA Keys
 Place your RSA public and private keys in the `src/main/resources/certs` directory.
