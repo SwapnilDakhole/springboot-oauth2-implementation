@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "jwt",
+      "type": "com.swapnil.ouath.config.RSAKeyRecord",
+      "sourceType": "com.swapnil.ouath.config.RSAKeyRecord"
+    }
+  ],
+  "properties": [
+    {
+      "name": "jwt.rsa-private-key",
+      "type": "java.security.interfaces.RSAPrivateKey",
+      "sourceType": "com.swapnil.ouath.config.RSAKeyRecord"
+    },
+    {
+      "name": "jwt.rsa-public-key",
+      "type": "java.security.interfaces.RSAPublicKey",
+      "sourceType": "com.swapnil.ouath.config.RSAKeyRecord"
+    }
+  ],
+  "hints": []
+}
